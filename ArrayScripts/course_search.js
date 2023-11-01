@@ -54,6 +54,33 @@ function getTitle(courses, courseId)
     console.log("-----------------------------------");
 }
 
+function getTitles(courses)
+{
+    // 1. create container
+    const with50DollarsOrLess = [];
+
+    // 2. get the titles of courses that cost $50 or less
+    for (let i =0; i < courses.length; i++)
+    {
+        const courseItem = courses[i];
+
+        if (+courseItem.Fee <= 50)
+        {
+            with50DollarsOrLess.push(courseItem);
+        }
+    }
+
+    // 3. return
+    console.log("What are the titles of the courses that cost $50 or less?");
+    for (let i =0; i < with50DollarsOrLess.length; i++)
+    {
+        console.log(with50DollarsOrLess[i].Title);
+    }
+    console.log("-----------------------------------");
+}
+
+
+
 
 
 let courses = [
@@ -96,3 +123,4 @@ let courses = [
 
 getStartDateCourseId(courses, "PROG200");
 getTitle(courses, "PROJ500");
+getTitles(courses);
