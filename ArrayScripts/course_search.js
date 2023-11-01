@@ -1,35 +1,59 @@
 "use strict"
 
-function getStartDateProg200(courses, CourseId)
+function getStartDateCourseId(courses, courseId)
 {
     // 1. create container
-    const courseIdStartDate = [];
+    const withCourseIdStartDate = [];
 
-    // 2. get the start date of the given CourseId
+    // 2. get the start date of the given courseId
     for (let i = 0; i < courses.length; i++)
     {
         const courseItem = courses[i];
 
-        if (courses[i].CourseId == CourseId)
+        if (courseItem.CourseId == courseId)
         {
-            courseIdStartDate.push(courseItem);
+            withCourseIdStartDate.push(courseItem);
         }
     }
 
-
     // 3. return
-    return courseIdStartDate;
-}
+    // return withCourseIdStartDate;
 
-function displayOutput(courses)
-{
     console.log("When does the PROG200 course start?");
-    for (let i =0; i < courses.length; i++)
+    for (let i =0; i < withCourseIdStartDate.length; i++)
     {
-        console.log(courses[i].StartDate);
+        console.log(withCourseIdStartDate[i].StartDate);
     }
     console.log("-----------------------------------");
 }
+
+function getTitle(courses, courseId)
+{
+    //  1. create container
+    const withCourseIdTitle = [];
+
+    // 2. get the title of the given courseId
+    for (let i =0; i < courses.length; i++)
+    {
+        const courseItem = courses[i];
+
+        if (courseItem.CourseId == courseId)
+        {
+            withCourseIdTitle.push(courseItem);
+        }
+    }
+
+    // 3. return
+    // return withCourseIdTitle;
+
+    console.log("What is the title of the PROJ500 course?");
+    for (let i =0; i < withCourseIdTitle.length; i++)
+    {
+        console.log(withCourseIdTitle[i].Title);
+    }
+    console.log("-----------------------------------");
+}
+
 
 
 let courses = [
@@ -70,5 +94,5 @@ let courses = [
     }
 ];
 
-const startDate = getStartDateProg200(courses, "PROG200");
-displayOutput(startDate);
+getStartDateCourseId(courses, "PROG200");
+getTitle(courses, "PROJ500");
