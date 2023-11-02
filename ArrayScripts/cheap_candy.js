@@ -32,7 +32,7 @@ function getProduct(products, keyword)
         }
     }
 
-    console.log("Which candies has \"M&M\" its name?");
+    console.log("Which candies has \"M&M\" in its name?");
     for (let i = 0; i < productsWithKeywordOf.length; i++)
     {
         console.log(productsWithKeywordOf[i].product);
@@ -49,5 +49,25 @@ let products = [
     // price ranges
 ];
 
+function isProductAvailable(products, productName)
+{
+    let isAvailable = "";
+
+    for (let i = 0; i < products.length; i++)
+    {
+        if (products[i].product == productName)
+        {
+            isAvailable = "Yes, we do have";
+        }
+        else isAvailable = "Sorry, we don't have"
+    }
+
+    console.log("Do we carry \"Swedish Fish\"?");
+    console.log(`${isAvailable} ${productName}.`);
+    console.log("--------------------------------------------------------");
+}
+
 getCandyCost(products, 4); // Which candies costs less than $4.00?
-getProduct(products, "M&M"); //  Which candies has "M&M" its name?
+getProduct(products, "M&M"); // Which candies has "M&M" in its name?
+isProductAvailable(products, "Swedish Fish"); // Do we carry "Swedish Fish"?
+
