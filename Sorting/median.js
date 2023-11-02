@@ -15,6 +15,8 @@ function evenOrOdd(array)
 
     let average = getAverage(array);
     let median = getMedian(array, modulus);
+
+    displayFunction(array, average, median);
 }
 
 function getAverage(array)
@@ -50,6 +52,7 @@ function getMedian(array, modulus)
     }
     else 
     {
+        let index = 0;
         index = parseInt(length / 2);
         median = array[index];
     }
@@ -58,7 +61,14 @@ function getMedian(array, modulus)
      return +(median.toFixed(2))
 }
 
+function displayFunction(array, average, median)
+{
+    console.log(`Sorted list: ${array}`);
+    console.log(`Average: ${average}`);
+    console.log(`Median: ${median}`);
+    console.log("--------------------------------------");
+}
+
 
 sortedArray([92, 98, 84, 76, 89, 100]);
-console.log("--------------------------------");
-// sortedArray([82, 98, 94, 88, 92, 100, 100])
+sortedArray([82, 98, 94, 88, 92, 100, 100])
