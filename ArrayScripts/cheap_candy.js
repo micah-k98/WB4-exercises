@@ -17,6 +17,27 @@ function getCandyCost(products, price)
     {
         console.log(`${candiesWithPriceOf[i].product} --- ${candiesWithPriceOf[i].price}`);
     }
+    console.log("--------------------------------------------------------");
+}
+
+function getProduct(products, keyword)
+{
+    const productsWithKeywordOf = [];
+
+    for (let i = 0; i < products.length; i++)
+    {
+        if (products[i].product.indexOf(keyword) != -1)
+        {
+            productsWithKeywordOf.push(products[i]);
+        }
+    }
+
+    console.log("Which candies has \"M&M\" its name?");
+    for (let i = 0; i < productsWithKeywordOf.length; i++)
+    {
+        console.log(productsWithKeywordOf[i].product);
+    }
+    console.log("--------------------------------------------------------");
 }
 
 let products = [
@@ -29,3 +50,4 @@ let products = [
 ];
 
 getCandyCost(products, 4); // Which candies costs less than $4.00?
+getProduct(products, "M&M"); //  Which candies has "M&M" its name?
