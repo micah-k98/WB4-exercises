@@ -30,6 +30,34 @@ function getAverage(array)
     return +(totalScores / length).toFixed(2);
 }
 
+function getMedian(array, modulus)
+{
+    let median = 0;
+    let length = array.length;
+
+    if (modulus == 0)
+    {
+        let firstNum = (length/2)-1;
+        let secondNum = firstNum + 1;
+
+        let medianAverage = array[firstNum] + array[secondNum];
+        median = medianAverage/2
+
+        // for (let i = firstNum; i < (secondNum + 1); i++)
+        // {
+        //     median = median + array[i];
+        // }
+    }
+    else 
+    {
+        index = parseInt(length / 2);
+        median = array[index];
+    }
+    
+
+     return +(median.toFixed(2))
+}
+
 
 sortedArray([92, 98, 84, 76, 89, 100]);
 console.log("--------------------------------");
