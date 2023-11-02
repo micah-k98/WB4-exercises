@@ -64,6 +64,26 @@ function getVehicleCapacity(vehicles, capacity)
     console.log("--------------------------------------------------------");
 }
 
+function getLicensePlate(vehicles, keyword)
+{
+    const withLicensePlateNumOf = [];
+
+    for (let i = 0; i < vehicles.length; i++)
+    {
+        if (vehicles[i].licenseNo.indexOf(keyword) != -1)
+        {
+            withLicensePlateNumOf.push(vehicles[i]);
+        }
+    }
+
+    console.log(`Which vehicles have license plates that end with ${keyword}?`);
+    for (let i = 0; i < withLicensePlateNumOf.length; i++)
+    {
+        console.log(`  ${withLicensePlateNumOf[i].type}, license number: ${withLicensePlateNumOf[i].licenseNo}`);
+    }
+    console.log("--------------------------------------------------------");
+}
+
 let vehicles = [
     {
     color: "Silver",
@@ -133,7 +153,7 @@ let vehicles = [
         color: "White",
         type: "SUV",
         registrationState: "AZ",
-        licenseNo: "698-MIC",
+        licenseNo: "222-MIC",
         registrationExpires: new Date("6-30-2024"),
         capacity: 5
         }
@@ -142,3 +162,5 @@ let vehicles = [
 getVehicleColor(vehicles, "RED") // Which vehicles are RED?
 getRegistrationExpirationDate(vehicles); // Which vehicles have registrations that are expired?
 getVehicleCapacity(vehicles, 6) // Which vehicles that hold at least 6 people?
+getLicensePlate(vehicles, "222") // Which vehicles have license plates that end with "222"?
+
