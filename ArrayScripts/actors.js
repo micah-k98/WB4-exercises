@@ -13,7 +13,28 @@ function getAcademyMember(academyMembers, memId)
     }
 
     console.log("Who is the Academy Member whose ID is 187?");
-    console.log(academyMember);
+    console.log(`  ${academyMember}`);
+    console.log("--------------------------------------------------------");
+}
+
+function countNumberOfFilms(academyMembers, requiredNumOfFilms)
+{
+    const withRequiredNumOfFilms = [];
+
+    for (let i = 0; i < academyMembers.length; i++)
+    {
+        if (academyMembers[i].films.length >= requiredNumOfFilms)
+        {
+            withRequiredNumOfFilms.push(academyMembers[i]);
+        }
+    }
+
+    console.log("Who has have been in at least 3 films?");
+    for (let i = 0; i < withRequiredNumOfFilms.length; i++)
+    {
+        console.log(`  ${withRequiredNumOfFilms[i].name}`);
+    }
+    console.log("--------------------------------------------------------");
 }
 
 let academyMembers = [
@@ -42,3 +63,4 @@ let academyMembers = [
 ];
 
 getAcademyMember(academyMembers, 187); // Who is the Academy Member whose ID is 187?
+countNumberOfFilms(academyMembers, 3); // Who has have been in at least 3 films?
