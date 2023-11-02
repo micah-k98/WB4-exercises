@@ -57,6 +57,34 @@ function getNameStartsWith(academyMembers, name)
     console.log("--------------------------------------------------------");
 }
 
+function getMemberWithFilm(academyMember, filmStartsWithLetter)
+{
+    const membersWithFilm = [];
+
+    for (let i = 0; i < academyMembers.length; i++)
+    {
+        let filmLength = academyMembers[i].films.length;
+        let memberName = "";
+
+        for (let j = 0; j < filmLength; j++)
+        {
+            if (academyMembers[i].films[j].indexOf(filmStartsWithLetter) != -1)
+            {
+                memberName = academyMembers[i].name;
+            }
+        }
+
+        if (memberName != "") membersWithFilm.push(memberName);
+    }
+
+    console.log(`Which Academy Members have been in a film that starts with ${filmStartsWithLetter}?`);
+    for (let i = 0; i < membersWithFilm.length; i++)
+    {
+        console.log(`  ${membersWithFilm[i]}`);
+    }
+    console.log("--------------------------------------------------------");
+}
+
 let academyMembers = [
     {
     memID: 101,
@@ -85,3 +113,4 @@ let academyMembers = [
 getAcademyMember(academyMembers, 187); // Who is the Academy Member whose ID is 187?
 countNumberOfFilms(academyMembers, 3); // Who has have been in at least 3 films?
 getNameStartsWith(academyMembers, "Bob"); // Who has a name that starts with "Bob"?
+getMemberWithFilm(academyMembers, "A") // Which Academy Members have been in a film that starts with "A"
