@@ -12,7 +12,7 @@ function getAcademyMember(academyMembers, memId)
         }
     }
 
-    console.log("Who is the Academy Member whose ID is 187?");
+    console.log(`Who is the Academy Member whose ID is ${memId}?`);
     console.log(`  ${academyMember}`);
     console.log("--------------------------------------------------------");
 }
@@ -29,10 +29,30 @@ function countNumberOfFilms(academyMembers, requiredNumOfFilms)
         }
     }
 
-    console.log("Who has have been in at least 3 films?");
+    console.log(`Who has have been in at least ${requiredNumOfFilms} films?`);
     for (let i = 0; i < withRequiredNumOfFilms.length; i++)
     {
         console.log(`  ${withRequiredNumOfFilms[i].name}`);
+    }
+    console.log("--------------------------------------------------------");
+}
+
+function getNameStartsWith(academyMembers, name)
+{
+    const nameStartsWith = [];
+
+    for (let i = 0; i < academyMembers.length; i++)
+    {
+        if (academyMembers[i].name.indexOf(name) != -1 )
+        {
+            nameStartsWith.push(academyMembers[i]);
+        }
+    }
+
+    console.log(`Who has a name that starts with ${name}?`);
+    for (let i = 0; i < nameStartsWith.length; i++)
+    {
+        console.log(`  ${nameStartsWith[i].name}`);
     }
     console.log("--------------------------------------------------------");
 }
@@ -64,3 +84,4 @@ let academyMembers = [
 
 getAcademyMember(academyMembers, 187); // Who is the Academy Member whose ID is 187?
 countNumberOfFilms(academyMembers, 3); // Who has have been in at least 3 films?
+getNameStartsWith(academyMembers, "Bob"); // Who has a name that starts with "Bob"?
