@@ -29,7 +29,7 @@ function getRegistrationExpirationDate(vehicles)
     for (let i = 0; i < vehicles.length; i ++)
     {
         let expirationDate = vehicles[i].registrationExpires;
-        
+
         if (expirationDate <= currentTime)
         {
             vehicleWithExpiredRegistration.push(vehicles[i]);
@@ -41,6 +41,27 @@ function getRegistrationExpirationDate(vehicles)
     {
         console.log(`  ${vehicleWithExpiredRegistration[i].licenseNo}`);
     }
+    console.log("--------------------------------------------------------");
+}
+
+function getVehicleCapacity(vehicles, capacity)
+{
+    const vehicleWithCapacityOf = [];
+
+    for (let i = 0; i < vehicles.length; i++)
+    {
+        if (vehicles[i].capacity >= capacity)
+        {
+            vehicleWithCapacityOf.push(vehicles[i]);
+        }
+    }
+
+    console.log(`Which vehicles that hold at least ${capacity} people?`);
+    for (let i = 0; i < vehicleWithCapacityOf.length; i++)
+    {
+        console.log(`  ${vehicleWithCapacityOf[i].type}, license number: ${vehicleWithCapacityOf[i].licenseNo}`);
+    }
+    console.log("--------------------------------------------------------");
 }
 
 let vehicles = [
@@ -120,3 +141,4 @@ let vehicles = [
 
 getVehicleColor(vehicles, "RED") // Which vehicles are RED?
 getRegistrationExpirationDate(vehicles); // Which vehicles have registrations that are expired?
+getVehicleCapacity(vehicles, 6) // Which vehicles that hold at least 6 people?
