@@ -61,11 +61,23 @@ function getMedian(array, modulus)
      return +(median.toFixed(2))
 }
 
+function lowestScore(array)
+{
+    return array[0];
+}
+
+function highestScore(array)
+{
+    return array[(array.length)-1];
+}
+
 function displayFunction(array, average, median)
 {
     console.log(`Sorted list: ${array}`);
     console.log(`Average: ${average}`);
     console.log(`Median: ${median}`);
+    console.log(`Lowest score: ${lowestScore(array)}`);
+    console.log(`Highest score: ${highestScore(array)}`);
     console.log("--------------------------------------");
 }
 
