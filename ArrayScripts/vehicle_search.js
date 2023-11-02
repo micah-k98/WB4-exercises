@@ -20,6 +20,29 @@ function getVehicleColor(vehicles, color)
     console.log("--------------------------------------------------------");
 }
 
+function getRegistrationExpirationDate(vehicles)
+{
+    const vehicleWithExpiredRegistration = [];
+    let currentTime = new Date();
+    // currentTime = currentTime.toLocaleString();
+
+    for (let i = 0; i < vehicles.length; i ++)
+    {
+        let expirationDate = vehicles[i].registrationExpires;
+        
+        if (expirationDate <= currentTime)
+        {
+            vehicleWithExpiredRegistration.push(vehicles[i]);
+        }
+    }
+
+    console.log(`Which vehicles have registrations that are expired?`);
+    for (let i = 0; i < vehicleWithExpiredRegistration.length; i ++)
+    {
+        console.log(`  ${vehicleWithExpiredRegistration[i].licenseNo}`);
+    }
+}
+
 let vehicles = [
     {
     color: "Silver",
@@ -84,7 +107,16 @@ let vehicles = [
     licenseNo: "123-ABC",
     registrationExpires: new Date("3-31-2023"),
     capacity: 5
-    }
+    },
+    {
+        color: "White",
+        type: "SUV",
+        registrationState: "AZ",
+        licenseNo: "698-MIC",
+        registrationExpires: new Date("6-30-2024"),
+        capacity: 5
+        }
 ];
 
 getVehicleColor(vehicles, "RED") // Which vehicles are RED?
+getRegistrationExpirationDate(vehicles); // Which vehicles have registrations that are expired?
